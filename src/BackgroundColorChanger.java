@@ -5,22 +5,29 @@ import java.awt.*;
  * ColorButtonFrame sets up a JFrame which has buttons
  * to change the background color of this frame or darken the background color.
  */
-public class BackgroundColorChanger extends JFrame {
+public class BackgroundColorChanger extends JPanel {
 
     private JButton green, red, darker;
+    private final FlowLayout flowLayout;
 
     /**
      * Initialize the frame and set up some attribute
      */
     public BackgroundColorChanger() {
-        super("Hintergrundfarbe wechseln");
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setSize(400, 250);
-        this.getContentPane().setBackground(Color.DARK_GRAY);
+        this.setBackground(Color.DARK_GRAY);
+        flowLayout = new FlowLayout();
         initButton();
         initLayout();
         changeColorOnClick();
         darkenColorOnClick();
+    }
+
+    public FlowLayout getFlowLayout() {
+        return flowLayout;
+    }
+
+    public JPanel getPanel() {
+        return this;
     }
 
     /**
@@ -33,12 +40,10 @@ public class BackgroundColorChanger extends JFrame {
     }
 
     /**
-     * Set up layout, add buttons.
+     * Set up layout for buttons.
      */
     private void initLayout() {
-        FlowLayout flowLayout = new FlowLayout();
         flowLayout.setAlignment(FlowLayout.CENTER);
-        this.setLayout(flowLayout);
         this.add(green);
         this.add(darker);
         this.add(red);
@@ -48,8 +53,8 @@ public class BackgroundColorChanger extends JFrame {
      * Changes background color based on button selection.
      */
     private void changeColorOnClick() {
-        green.addActionListener(greenClick -> this.getContentPane().setBackground(Color.GREEN));
-        red.addActionListener(redClick -> this.getContentPane().setBackground(Color.RED));
+        green.addActionListener(greenClick -> this.setBackground(Color.GREEN));
+        red.addActionListener(redClick -> this.setBackground(Color.RED));
     }
 
     /**
@@ -57,10 +62,10 @@ public class BackgroundColorChanger extends JFrame {
      */
     private void darkenColorOnClick() {
         darker.addActionListener(darkerClick -> {
-            if (this.getContentPane().getBackground().equals(Color.RED)) {
-                this.getContentPane().setBackground(Color.RED.darker());
-            } else if (this.getContentPane().getBackground().equals(Color.GREEN)) {
-                this.getContentPane().setBackground(Color.GREEN.darker());
+            if (this.getBackground().equals(Color.RED)) {
+                this.setBackground(Color.RED.darker());
+            } else if (this.getBackground().equals(Color.GREEN)) {
+                this.setBackground(Color.GREEN.darker());
             }
         });
     }
