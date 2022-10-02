@@ -11,7 +11,7 @@ public class BackgroundColorChanger extends JPanel {
 
     private JButton green, red, darker, rbgButton;
     private final FlowLayout flowLayout;
-    private UserColor userColor;
+    private final UserColor userColor;
 
     /**
      * Initialize the frame and set up some attribute
@@ -25,10 +25,6 @@ public class BackgroundColorChanger extends JPanel {
         changeColorOnClick();
         darkenColorOnClick();
         rbgButtonClick();
-    }
-
-    public FlowLayout getFlowLayout() {
-        return flowLayout;
     }
 
     public JPanel getPanel() {
@@ -77,6 +73,9 @@ public class BackgroundColorChanger extends JPanel {
         });
     }
 
+    /**
+     * Calls method from class UserColor to read user input from
+     */
     private void rbgButtonClick(){
         rbgButton.addActionListener(rbgClicked -> {
             userColor.readRBGValuesPane();
