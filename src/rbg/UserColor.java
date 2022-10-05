@@ -19,7 +19,7 @@ public class UserColor {
         red = Integer.parseInt(JOptionPane.showInputDialog(new JTextField(1), "RBG Wert für Rot eingeben", "Rot", JOptionPane.INFORMATION_MESSAGE));
         green = Integer.parseInt(JOptionPane.showInputDialog(new JTextField(1), "RBG Wert für Grün eingeben", "Grün", JOptionPane.INFORMATION_MESSAGE));
         blue = Integer.parseInt(JOptionPane.showInputDialog(new JTextField(1), "RBG Wert für Blau eingeben", "Blau", JOptionPane.INFORMATION_MESSAGE));
-        checkRBGValues(red, green, blue);
+        checkRGBValues(red, green, blue);
     }
 
     /**
@@ -30,7 +30,7 @@ public class UserColor {
      * @param green Green RBG value to be checked
      * @param blue Blue RBG value to be checked
      */
-    private void checkRBGValues(int red, int green, int blue){
+    private void checkRGBValues(int red, int green, int blue){
         if((red < 0 || red > 255) || (green < 0 || green > 255) || (blue < 0 || blue > 255) ){
            int confirm = JOptionPane.showConfirmDialog(null, "Werte müssen zwischen 0 und 255 liegen \n Neue Eingabe starten?", "Eingabe Fehler", JOptionPane.YES_NO_OPTION);
             if(confirm == JOptionPane.YES_OPTION){

@@ -1,6 +1,6 @@
 package rbg;
 
-public class RBGValuesException extends RuntimeException {
+public class RGBValuesException extends RuntimeException {
 
     @Override
     public String getMessage() {

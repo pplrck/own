@@ -9,9 +9,9 @@ import java.awt.*;
  */
 public class BackgroundColorChanger extends JPanel {
 
-    private JButton green, red, darker, rbgButton;
+    private JButton green, red, darker, rgbButton;
     private final FlowLayout flowLayout;
-    private final UserColor userColor;
+    private final UserColor inputColor;
 
     /**
      * Initialize the frame and set up some attribute
@@ -19,12 +19,12 @@ public class BackgroundColorChanger extends JPanel {
     public BackgroundColorChanger() {
         this.setBackground(Color.DARK_GRAY);
         flowLayout = new FlowLayout();
-        userColor = new UserColor();
+        inputColor = new UserColor();
         initButton();
         initLayout();
         changeColorOnClick();
         darkenColorOnClick();
-        rbgButtonClick();
+        rbgButtonOnClick();
     }
 
     public JPanel getPanel() {
@@ -38,7 +38,7 @@ public class BackgroundColorChanger extends JPanel {
         green = new JButton("Grün");
         red = new JButton("Rot");
         darker = new JButton("Dunkler");
-        rbgButton = new JButton("RBG Werte");
+        rgbButton = new JButton("RBG Werte");
     }
 
     /**
@@ -49,7 +49,7 @@ public class BackgroundColorChanger extends JPanel {
         this.add(green);
         this.add(darker);
         this.add(red);
-        this.add(rbgButton);
+        this.add(rgbButton);
     }
 
     /**
@@ -76,10 +76,10 @@ public class BackgroundColorChanger extends JPanel {
     /**
      * Calls method from class UserColor to read user input from
      */
-    private void rbgButtonClick(){
-        rbgButton.addActionListener(rbgClicked -> {
-            userColor.readRBGValuesPane();
-            this.setBackground(userColor.getColor());
+    private void rbgButtonOnClick() {
+        rgbButton.addActionListener(rbgClicked -> {
+            inputColor.readRBGValuesPane();
+            this.setBackground(inputColor.getColor());
         });
     }
 }
