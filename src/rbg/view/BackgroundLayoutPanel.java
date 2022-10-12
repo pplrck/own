@@ -1,13 +1,15 @@
-import rbg.UserColor;
+package rbg.view;
+
+import rbg.model.UserColor;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * ColorButtonFrame sets up a JFrame which has buttons
- * to change the background color of this frame or darken the background color.
+ * ColorButtonFrame sets up a JFrame which has several buttons
+ * to change the background color on button usage
  */
-public class BackgroundColorChanger extends JPanel {
+public class BackgroundLayoutPanel extends JPanel {
 
     private JButton green, red, darker, rgbButton;
     private final FlowLayout flowLayout;
@@ -16,18 +18,31 @@ public class BackgroundColorChanger extends JPanel {
     /**
      * Initialize the frame and set up some attribute
      */
-    public BackgroundColorChanger() {
+    public BackgroundLayoutPanel() {
         this.setBackground(Color.DARK_GRAY);
         flowLayout = new FlowLayout();
         inputColor = new UserColor();
         initButton();
         initLayout();
-        changeColorOnClick();
-        darkenColorOnClick();
-        rbgButtonOnClick();
     }
 
-    public JPanel getPanel() {
+    public JButton getGreenButton() {
+        return green;
+    }
+
+    public JButton getRedButton() {
+        return red;
+    }
+
+    public JButton getDarkerButton() {
+        return darker;
+    }
+
+    public JButton getRgbButton() {
+        return rgbButton;
+    }
+
+    public JPanel getPanel(){
         return this;
     }
 

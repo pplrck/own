@@ -1,4 +1,4 @@
-package rbg;
+package rbg.model;
 
 import javax.swing.*;
 import java.awt.*;

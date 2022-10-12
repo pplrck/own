@@ -1,4 +1,4 @@
-package rbg.view;
+package rbg.exceptions;
 
 public class RGBValuesException extends RuntimeException {
 
