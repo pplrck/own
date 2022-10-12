@@ -1,3 +1,5 @@
+package rbg.controller;
+
 import javax.swing.*;
 
 public class ColorChangerFrame extends JFrame {
